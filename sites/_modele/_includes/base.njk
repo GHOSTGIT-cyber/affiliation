@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="{{ site.langue or 'fr' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{%- if exemple or typePage == "technique" %}
+<meta name="robots" content="noindex">
+{%- endif %}
+<meta name="aff:type" content="{{ typePage or 'autre' }}">
+{%- if typePage == "contenu" %}
+<meta name="aff:silo" content="{{ silo }}">
+<meta name="aff:soussilo" content="{{ soussilo }}">
+<meta name="aff:mere" content="{{ 'true' if mere else 'false' }}">
+<meta name="aff:motcle" content="{{ motcle }}">
+{%- endif %}
+{%- if exemple %}
+<meta name="aff:exemple" content="true">
+{%- endif %}
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/site.js" {% if site.ga4_id %}data-ga4="{{ site.ga4_id }}" {% endif %}defer></script>
+{%- if fil %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{% for e in fil %}{"@type":"ListItem","position":{{ loop.index }},"name":{{ e.nom | json | safe }},"item":{{ (site.url + e.url) | json | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>
+{%- endif %}
+</head>
+<body>
+<a class="aller-au-contenu" href="#contenu">Aller au contenu</a>
+<header class="entete">
+  <div class="conteneur">
+    <a class="logo" href="/">{{ site.nom }}</a>
+    <nav aria-label="Rubriques">
+      <ul>
+        {%- for s in silos %}
+        <li><a href="/{{ s.slug }}/">{{ s.nom }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+{%- if fil %}
+<nav class="fil conteneur" aria-label="Fil d'Ariane">
+  <ol>
+    {%- for e in fil %}
+    <li>{% if loop.last %}<span aria-current="page">{{ e.nom }}</span>{% else %}<a href="{{ e.url }}">{{ e.nom }}</a>{% endif %}</li>
+    {%- endfor %}
+  </ol>
+</nav>
+{%- endif %}
+<main id="contenu" class="conteneur">
+{{ content | safe }}
+</main>
+<footer class="pied">
+  <div class="conteneur">
+    <p class="mention-affiliation">{{ site.amazon.mention }}</p>
+    <ul>
+      <li><a href="/a-propos/">À propos</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/mentions-legales/">Mentions légales</a></li>
+      <li><a href="/confidentialite/">Confidentialité</a></li>
+      {%- if site.ga4_id %}
+      <li><button type="button" class="lien" data-gerer-cookies>Gérer les cookies</button></li>
+      {%- endif %}
+    </ul>
+  </div>
+</footer>
+{%- if site.ga4_id %}
+<div class="bandeau-cookies" data-bandeau-cookies role="dialog" aria-label="Mesure d'audience" hidden>
+  <p>Nous mesurons l'audience du site (Google Analytics) pour savoir quelles pages vous sont utiles. Vous pouvez refuser : le site fonctionne de la même façon. <a href="/confidentialite/">En savoir plus</a></p>
+  <div class="bandeau-boutons">
+    <button type="button" data-choix="refuse">Refuser</button>
+    <button type="button" data-choix="accepte">Accepter</button>
+  </div>
+</div>
+{%- endif %}
+</body>
+</html>

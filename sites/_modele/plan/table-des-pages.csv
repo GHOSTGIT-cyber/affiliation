@@ -1,0 +1,3 @@
+motcle;question;format;silo;soussilo;mere;produits;liens_internes;angle;statut;fichier
+meilleur produit exemple;Quel produit exemple choisir ?;meilleurs-x;silo-exemple;sous-silo-a;oui;exemple-a|exemple-b;;Le meilleur choix pour la plupart des lecteurs, en haut de page;ecrite;pages/silo-exemple/sous-silo-a.md
+produit exemple a ou b;Produit A ou produit B ?;comparatif;silo-exemple;sous-silo-a;non;exemple-a|exemple-b;sous-silo-a;Verdict clair selon le profil du lecteur;ecrite;pages/silo-exemple/exemple-a-ou-b.md

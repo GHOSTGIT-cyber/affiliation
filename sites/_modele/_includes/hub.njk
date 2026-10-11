@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+<h1>{{ silo.titre or silo.nom }}</h1>
+<div class="contenu">
+  <p>{{ silo.intro }}</p>
+  <ul class="liste-dossiers">
+    {%- for ss in silo.soussilos %}
+    {%- set m = collections.contenus | pageMere(silo.slug, ss.slug) %}
+    {%- if m %}
+    <li><a href="{{ m.url }}">{{ m.data.h1 or m.data.title }}</a> <span class="compte">{{ (collections.contenus | filles(silo.slug, ss.slug)).length + 1 }} pages</span></li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+</div>

@@ -1,0 +1,96 @@
+/* Style de départ, sobre et lisible sur téléphone (module 5).
+   Change le look de chaque site ici : d'abord les variables, puis le reste. */
+:root {
+  --couleur-texte: #1f2328;
+  --couleur-doux: #59636e;
+  --couleur-fond: #ffffff;
+  --couleur-fond-doux: #f4f6f8;
+  --couleur-bordure: #d8dee4;
+  --couleur-accent: #1f5fbf;
+  --couleur-bouton: #1f5fbf;
+  --couleur-bouton-texte: #ffffff;
+  --police: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --largeur: 46rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--police);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+}
+a { color: var(--couleur-accent); }
+img { max-width: 100%; height: auto; }
+
+.conteneur { max-width: var(--largeur); margin: 0 auto; padding: 0 1rem; }
+.aller-au-contenu { position: absolute; left: -999px; }
+.aller-au-contenu:focus { left: 1rem; top: 1rem; background: var(--couleur-fond); padding: .5rem; }
+
+/* En-tête et menu par silo */
+.entete { border-bottom: 1px solid var(--couleur-bordure); }
+.entete .conteneur { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; padding-top: .75rem; padding-bottom: .75rem; }
+.logo { font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--couleur-texte); }
+.entete ul { display: flex; flex-wrap: wrap; gap: .25rem 1rem; list-style: none; margin: 0; padding: 0; font-size: 1rem; }
+
+/* Fil d'Ariane */
+.fil ol { display: flex; flex-wrap: wrap; list-style: none; margin: .75rem auto 0; padding: 0; font-size: .9rem; color: var(--couleur-doux); }
+.fil li + li::before { content: "›"; margin: 0 .4rem; }
+
+/* Texte */
+main { padding-bottom: 3rem; }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 1.25rem 0 1rem; }
+h2 { font-size: 1.45rem; line-height: 1.3; margin-top: 2.25rem; }
+h3 { font-size: 1.2rem; margin-top: 1.75rem; }
+
+.sommaire { background: var(--couleur-fond-doux); border-radius: .5rem; padding: .75rem 1rem; margin: 1.5rem 0; font-size: 1rem; }
+.sommaire-titre { font-weight: 700; margin: 0 0 .25rem; }
+.sommaire ol { margin: 0; padding-left: 1.25rem; }
+
+/* Encadré produit : identique partout, facile à repérer (module 6) */
+.encadre-produit { border: 2px solid var(--couleur-bordure); border-radius: .75rem; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+.encadre-nom { font-weight: 700; font-size: 1.2rem; margin: 0 0 .25rem; }
+.encadre-pour-qui { margin: 0 0 .5rem; }
+.encadre-colonnes { display: grid; gap: 0 1rem; }
+.encadre-colonnes ul { margin: 0 0 .75rem; padding-left: 1.25rem; }
+.encadre-forts li::marker { content: "+ "; color: #1a7f37; font-weight: 700; }
+.encadre-defauts li::marker { content: "− "; color: #cf222e; font-weight: 700; }
+@media (min-width: 40rem) { .encadre-colonnes { grid-template-columns: 1fr 1fr; } }
+
+.bouton {
+  display: inline-block; padding: .7rem 1.25rem; border-radius: .5rem;
+  background: var(--couleur-bouton); color: var(--couleur-bouton-texte);
+  font-weight: 700; text-decoration: none;
+}
+.bouton:hover, .bouton:focus { filter: brightness(1.1); }
+
+/* Tableau comparatif : défile horizontalement sur petit écran */
+.tableau-defilant { overflow-x: auto; margin: 1.5rem 0; }
+.comparatif { border-collapse: collapse; width: 100%; font-size: 1rem; }
+.comparatif th, .comparatif td { border-bottom: 1px solid var(--couleur-bordure); padding: .5rem; text-align: left; vertical-align: top; }
+.comparatif thead th { background: var(--couleur-fond-doux); }
+.comparatif .meilleur-choix th::after { content: " ★"; color: #bf8700; }
+
+/* Liens vers les pages proches */
+.a-lire-aussi { border-top: 1px solid var(--couleur-bordure); margin-top: 2.5rem; padding-top: 1rem; }
+.a-lire-aussi-titre { font-weight: 700; margin: 0 0 .25rem; }
+.liste-dossiers .compte { color: var(--couleur-doux); font-size: .9rem; }
+
+/* Pied de page : la mention d'affiliation est lisible, jamais cachée */
+.pied { border-top: 1px solid var(--couleur-bordure); background: var(--couleur-fond-doux); font-size: .95rem; padding: 1.25rem 0 2rem; }
+.mention-affiliation { margin: 0 0 .75rem; }
+.pied ul { display: flex; flex-wrap: wrap; gap: .25rem 1rem; list-style: none; margin: 0; padding: 0; }
+button.lien { background: none; border: 0; padding: 0; font: inherit; color: var(--couleur-accent); text-decoration: underline; cursor: pointer; }
+
+/* Bandeau de consentement : en bas, ne couvre pas le texte */
+.bandeau-cookies {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  background: var(--couleur-fond); border-top: 2px solid var(--couleur-bordure);
+  padding: .75rem 1rem; font-size: .95rem; box-shadow: 0 -2px 8px rgba(0,0,0,.08);
+}
+.bandeau-cookies p { max-width: var(--largeur); margin: 0 auto .5rem; }
+.bandeau-boutons { max-width: var(--largeur); margin: 0 auto; display: flex; gap: .75rem; }
+.bandeau-boutons button { flex: 1; padding: .6rem; font: inherit; font-weight: 700; border-radius: .5rem; border: 2px solid var(--couleur-bouton); background: var(--couleur-fond); color: var(--couleur-bouton); cursor: pointer; }

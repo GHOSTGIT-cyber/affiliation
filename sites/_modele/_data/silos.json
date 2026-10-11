@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "silo-exemple",
+    "nom": "Silo d'exemple",
+    "titre": "Silo d'exemple : tout pour bien choisir",
+    "description": "Page d'exemple du modèle : remplace ce silo par les tiens (module 4).",
+    "intro": "Chaque silo est un grand sujet de ta niche. Cette page le présente en quelques lignes et mène vers chaque sous-silo.",
+    "soussilos": [
+      { "slug": "sous-silo-a", "nom": "Sous-silo A" }
+    ]
+  }
+]

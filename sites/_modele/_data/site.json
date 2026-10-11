@@ -1,0 +1,18 @@
+{
+  "nom": "Nom du site",
+  "url": "https://www.nom-du-site.fr",
+  "langue": "fr",
+  "description": "Une phrase qui dit à qui sert le site et ce qu'on y trouve.",
+  "amazon": {
+    "domaine": "www.amazon.fr",
+    "tag": "VOTRE-IDENTIFIANT",
+    "mention": "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.",
+    "texte_bouton": "Voir sur Amazon"
+  },
+  "ga4_id": "",
+  "indexnow_cle": "",
+  "garde_fou": {
+    "mots_min": 400,
+    "liens_contenu_max": 15
+  }
+}

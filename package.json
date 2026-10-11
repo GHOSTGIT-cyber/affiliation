@@ -1,0 +1,24 @@
+{
+  "name": "affiliation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sites d'affiliation statiques construits selon le guide « Comment générer ses premiers euros en affiliation ».",
+  "scripts": {
+    "nouveau-site": "node tools/nouveau-site.js",
+    "dev": "node tools/site.js dev",
+    "build": "node tools/site.js build",
+    "garde-fou": "node tools/site.js garde-fou",
+    "publier": "node tools/site.js publier",
+    "indexnow": "node tools/indexnow.js",
+    "test": "node --test tools/test/garde-fou.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "csv-parse": "7.0.3",
+    "node-html-parser": "9.0.4"
+  }
+}

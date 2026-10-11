@@ -1,0 +1,3 @@
+id;nom;marque;categorie;asin;pour_qui;caracteristiques;points_forts;defauts;source;date_releve;statut
+exemple-a;Produit Exemple A;Marque Exemple;exemple;B0EXEMPLE1;Les lecteurs qui veulent le choix le plus simple;Caractéristique 1, caractéristique 2;Point fort 1|Point fort 2;Défaut 1;https://www.marque-exemple.fr/fiche-a;2026-10-11;ok
+exemple-b;Produit Exemple B;Marque Exemple;exemple;B0EXEMPLE2;Les lecteurs qui ont un petit budget;Caractéristique 1, caractéristique 2;Point fort 1|Point fort 2;Défaut 1;https://www.marque-exemple.fr/fiche-b;2026-10-11;ok

@@ -1,0 +1,16 @@
+---
+layout: base.njk
+typePage: accueil
+eleventyComputed:
+  title: "{{ site.nom }}"
+  description: "{{ site.description }}"
+---
+<h1>{{ site.nom }}</h1>
+<div class="contenu">
+  <p>{{ site.description }}</p>
+  <ul class="liste-dossiers">
+    {%- for s in silos %}
+    <li><a href="/{{ s.slug }}/">{{ s.titre or s.nom }}</a></li>
+    {%- endfor %}
+  </ul>
+</div>

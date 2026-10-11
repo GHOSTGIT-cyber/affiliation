@@ -1,0 +1,55 @@
+---
+layout: base.njk
+---
+{%- set html = content | ancres -%}
+{%- set coupe = html.indexOf("<h2") -%}
+{%- set toc = content | sommaire -%}
+<article>
+  <h1>{{ h1 or title }}</h1>
+  <div class="contenu">
+    {%- if coupe > -1 %}
+    {{ html.slice(0, coupe) | safe }}
+    {%- if toc.length > 2 %}
+    <nav class="sommaire" aria-label="Sommaire">
+      <p class="sommaire-titre">Sommaire</p>
+      <ol>
+        {%- for t in toc %}
+        <li><a href="#{{ t.id }}">{{ t.titre }}</a></li>
+        {%- endfor %}
+      </ol>
+    </nav>
+    {%- endif %}
+    {{ html.slice(coupe) | safe }}
+    {%- else %}
+    {{ html | safe }}
+    {%- endif %}
+  </div>
+
+  {%- if mere %}
+  {%- set enfants = collections.contenus | filles(silo, soussilo) %}
+  {%- if enfants.length %}
+  <aside class="a-lire-aussi">
+    <p class="a-lire-aussi-titre">Dans ce dossier</p>
+    <ul>
+      {%- for p in enfants %}
+      <li><a href="{{ p.url }}">{{ p.data.h1 or p.data.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </aside>
+  {%- endif %}
+  {%- else %}
+  {%- set pageMere = collections.contenus | pageMere(silo, soussilo) %}
+  {%- set proches = collections.contenus | pagesProches(silo, soussilo, page.url, 3) %}
+  <aside class="a-lire-aussi">
+    <p class="a-lire-aussi-titre">À lire aussi</p>
+    <ul>
+      {%- if pageMere %}
+      <li><a href="{{ pageMere.url }}">{{ pageMere.data.h1 or pageMere.data.title }}</a></li>
+      {%- endif %}
+      {%- for p in proches %}
+      <li><a href="{{ p.url }}">{{ p.data.h1 or p.data.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </aside>
+  {%- endif %}
+</article>
