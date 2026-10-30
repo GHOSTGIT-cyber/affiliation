@@ -1,3 +1,15 @@
+<p align="center">
+  <img src=".github/readme/banner.svg" alt="Affiliation" width="100%">
+</p>
+
+> Générateur de sites d'affiliation statiques : un modèle, une commande par site.
+
+![ELEVENTY](https://img.shields.io/badge/ELEVENTY-0B1A2A?style=flat-square&labelColor=0B1A2A&color=1E3A52) ![NODE.JS](https://img.shields.io/badge/NODE.JS-0B1A2A?style=flat-square&labelColor=0B1A2A&color=1E3A52) ![SEO](https://img.shields.io/badge/SEO-0B1A2A?style=flat-square&labelColor=0B1A2A&color=1E3A52)
+
+**Statut** — 🟠 En cours
+
+---
+
 # Affiliation
 
 Sites d'affiliation statiques, construits avec la méthode du guide « Comment générer ses premiers euros en affiliation ». Le contexte complet (structure, règles, avancement) est dans [`CLAUDE.md`](CLAUDE.md).
